@@ -10,7 +10,6 @@ RUN pacman -S --noconfirm znc sudo gcc &&\
 
 # Config
 ADD files/ /
-RUN useradd znc
 
 EXPOSE 6667
 ENTRYPOINT ["/usr/local/bin/start-znc"]
