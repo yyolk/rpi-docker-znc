@@ -1,18 +1,17 @@
-# version 1.4-1
-# docker-version 0.11.1
-FROM        ubuntu:12.04
-MAINTAINER  Jim Myhrberg "contact@jimeh.me"
+#> ZNC - Robust IRC bouncer
+#? https://github.com/passcod/docker-znc
+FROM passcod/archlinux
+MAINTAINER  Félix Saparelli me@passcod.name
 
-# We use a bootstrap script to avoid having temporary cache files and build
-# dependencies being committed and included into the docker image.
-ADD         bootstrap.sh /tmp/
-RUN         chmod +x /tmp/bootstrap.sh && /tmp/bootstrap.sh
+# Deps
+RUN pacman -S --noconfirm znc sudo gcc &&\
+  pacman -Scc --noconfirm &&\
+  rm -rf /var/cache/pacman/pkg/*
 
-RUN         useradd znc
-ADD         start-znc /usr/local/bin/
-ADD         znc.conf.default /src/
-RUN         chmod 644 /src/znc.conf.default
+# Config
+ADD files/ /
+RUN useradd znc
 
-EXPOSE      6667
-ENTRYPOINT  ["/usr/local/bin/start-znc"]
-CMD         [""]
+EXPOSE 6667
+ENTRYPOINT ["/usr/local/bin/start-znc"]
+CMD [""]
