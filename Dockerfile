@@ -1,7 +1,7 @@
 #> ZNC - Robust IRC bouncer
-#? https://github.com/passcod/docker-znc
-FROM passcod/archlinux
-MAINTAINER  Félix Saparelli me@passcod.name
+#? https://github.com/yyolk/docker-znc
+FROM yyolk/rpi-archlinuxarm
+MAINTAINER  Joseph Yølk Chiocchi joe@yolk.cc
 
 # Deps
 RUN pacman -S --noconfirm znc sudo gcc &&\
