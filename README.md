@@ -4,7 +4,7 @@ Run the [ZNC](http://znc.in) IRC Bouncer in a Docker container.
 
 This is a version for Raspberry PI.
 
-Uses pre-built image of [yyolk/rpi-archlinuxarm](https://github.com/yyolk/rpi-docker-znc)
+Uses pre-built image of [yyolk/rpi-archlinuxarm](https://github.com/yyolk/rpi-archlinuxarm)
 
 ## Prerequisites
 
