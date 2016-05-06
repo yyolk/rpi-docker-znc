@@ -31,5 +31,10 @@ fi
 # mounted directory on the host machine too.
 chown -R znc:znc "$DATADIR"
 
+# For SSL Connection. Check for znc.pem and create it if necessarily 
+if [ ! -f "${DATADIR}/znc.pem" ]; then
+  sudo -u znc znc --datadir="$DATADIR" --makepem
+fi
+
 # Start ZNC.
 exec sudo -u znc znc --foreground --datadir="$DATADIR" $@
